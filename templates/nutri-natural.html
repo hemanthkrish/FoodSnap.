@@ -1,0 +1,43 @@
+{% extends 'index.html' %} 
+{%block table%}
+
+<table border="2" style="width: 90vw;">
+  <thead>
+    <tr>
+      <th>food Name</th>
+      <th>serving_qty</th>
+      <th>serving_unit</th>
+      <th>serving weight (grams)</th>
+      <th>calories</th>
+      <th>other servings</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for x in values %}
+    <tr>
+      <td>{{ x['food_name'] }}</td>
+      <td>{{ x['serving_qty'] }}</td>
+      <td>{{ x['serving_unit'] }}</td>
+      <td>{{ x['serving_weight_grams'] }}</td>
+      <td>{{ x['nf_calories'] }}</td>
+
+      <td colspan="2">
+        <table border="2" style="text-align: center">
+          {% for y in x['alt_measures']%}
+          {% if "oz" not in y['measure'] %}
+          <tr>
+            <th>{{y['measure']}}</th>
+            <td>{{y['serving_weight']}} g</td>
+            <td>{{y['qty']}} serve</td>
+          </tr>
+          {%endif%}
+          {%endfor%}
+        </table>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{%endblock%}

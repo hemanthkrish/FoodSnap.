@@ -1,0 +1,11 @@
+{% extends 'index.html'%}
+
+{% block exercise %}
+<textarea id="story" name="story" rows="5" disabled>
+    Great:😁
+    your exercise : {{exercise_returned_value["user_input"]}}
+    duration: {{exercise_returned_value["duration_min"]}} minutes
+    you might have burnt: {{exercise_returned_value["nf_calories"]}} calories
+</textarea>
+
+{% endblock %}

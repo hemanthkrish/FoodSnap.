@@ -1,0 +1,8 @@
+{% extends 'index.html'%}
+{% block manual%}
+    <h2>Is your predicted label correct </h2>
+    <form action="/nutrients" method="post" class="search-form">
+      <input class = "search-input" type="text" name = "food" placeholder="{{food_name}}" value = "{{food_name}}">
+      <button class="search-btn" type="submit">Confirm</button>
+    </form>
+{% endblock %}
